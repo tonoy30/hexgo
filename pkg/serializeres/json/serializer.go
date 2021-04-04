@@ -16,7 +16,7 @@ func (r *Redirect) Decode(data []byte) (*models.Short, error) {
 	}
 	return short, nil
 }
-func (r *Redirect) Encode(data models.Short) ([]byte, error) {
+func (r *Redirect) Encode(data *models.Short) ([]byte, error) {
 	msg, err := json.Marshal(data)
 	if err != nil {
 		return nil, errors.Wrap(err, "json.serializer.encode")
