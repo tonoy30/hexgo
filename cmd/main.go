@@ -5,8 +5,8 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/tonoy30/hexgo/config"
 	"github.com/tonoy30/hexgo/pkg/http/rest"
-	"github.com/tonoy30/hexgo/tool"
 )
 
 const (
@@ -14,7 +14,7 @@ const (
 )
 
 func init() {
-	tool.SetUpConfiguration()
+	config.SetUpConfiguration()
 }
 func main() {
 	fmt.Println("starting server on port " + PORT)

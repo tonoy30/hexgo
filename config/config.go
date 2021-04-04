@@ -1,8 +1,7 @@
-package tool
+package config
 
 import (
 	"fmt"
-	"log"
 
 	"github.com/spf13/viper"
 )
@@ -15,12 +14,4 @@ func SetUpConfiguration() {
 	if err := viper.ReadInConfig(); err != nil {
 		fmt.Printf("Error reading config file, %s", err)
 	}
-}
-
-func GetConfigValue(value string) string {
-	variable, ok := viper.Get(value).(string)
-	if !ok {
-		log.Fatalf("Invalid type assertion")
-	}
-	return variable
 }
