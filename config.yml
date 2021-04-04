@@ -3,8 +3,7 @@ SITE:
 
 DB:
   TYPE: mongo
-  HOST: "localhost"
-  PORT: "27017"
-  USERNAME: "admin"
-  PASWORD: "password"
-  NAME: "testdb"
+  MONGO_URL: mongodb://localhost:27017
+  MONGO_DB: _hex_url_shortener
+  MONGO_TIMEOUT: 50000
+
