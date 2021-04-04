@@ -1,0 +1,10 @@
+SITE:
+  TITLE: Test Site
+
+DB:
+  TYPE: mongo
+  HOST: "localhost"
+  PORT: "27017"
+  USERNAME: "admin"
+  PASWORD: "password"
+  NAME: "testdb"
