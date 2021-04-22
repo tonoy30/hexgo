@@ -30,6 +30,7 @@ func NewHandler(service services.ShortenerService) ShortenerHandler {
 }
 func setUpResponse(w http.ResponseWriter, contentType string, body []byte, statusCode int) {
 	w.Header().Set("Content-Type", contentType)
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.WriteHeader(statusCode)
 	_, err := w.Write(body)
 	if err != nil {

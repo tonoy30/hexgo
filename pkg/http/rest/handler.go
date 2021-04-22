@@ -21,11 +21,15 @@ func InitHandler() *mux.Router {
 	handler := NewHandler(service)
 
 	router := mux.NewRouter()
+
 	router.Use(middlewares.RealIP)
 	router.Use(middlewares.Logger)
+
 	router.HandleFunc("/", Index).Methods(http.MethodGet)
-	router.HandleFunc("/api/shortener", handler.Post).Methods(http.MethodPost)
-	router.HandleFunc("/api/shortener/{code}", handler.Get).Methods(http.MethodGet)
+	router.HandleFunc("/api/shortener", handler.Post).Methods(http.MethodOptions, http.MethodPost)
+	router.HandleFunc("/api/shortener/{code}", handler.Get).Methods(http.MethodOptions, http.MethodGet)
+	router.Use(mux.CORSMethodMiddleware(router))
+
 	return router
 }
 func Index(w http.ResponseWriter, r *http.Request) {
